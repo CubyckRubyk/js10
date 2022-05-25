@@ -21,39 +21,31 @@
 
 <!-- - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
 При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача-->
-<form name="f3">
-Enter age
-    <input name="age" type="number" id="age1">
-
-<input type="submit" name="submit">
-</form>
 <script>
-    let input = document.getElementById('age1');
-    input.oninput = function (e) {
-        console.log(e);
-    }
+    const age = document.createElement('input');
+    age.type = 'number';
+    const button1 = document.createElement('button');
+    button1.innerText = 'Submit';
+    document.body.append(age, button1);
 
 
-    let f3  = document.forms.f3;
-    f3.onsubmit = function (evs) {
-        let usAge = f3.age.value;
-        if (age < 18)
-console.log('too young')
-        else console.log('submited')
-    }
-f3.age.value = '';
-    //let b  = document.getElementsByTagName('submit');
-// let age = f3.age.value;
-// if (age > 18) then
-//     console.log('Submited');
-// if (age < 18)
-//     console.log('too young')
-//
-
-
-
-
+    button1.addEventListener('click', function (){
+        if (age.value >= 18) {
+            alert('Submitted')
+        } else {
+            alert('too young')
+        }
+        age.value = '';
+    })
 </script>
+
+
+
+
+
+
+
+
 <!-- - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.-->
 <form name="f1">
     Name
@@ -90,6 +82,40 @@ f3.age.value = '';
 <!--(Додатковачастина для завдання)-->
 <script>
     const num1 = document.createElement('input');
+
+    const num2 = document.createElement('input');
+
+    const text = document.createElement('input');
+    const button = document.createElement('button');
+    button.innerText = 'OK';
+    document.body.append(num1, num2, text, button);
+    button.addEventListener('click', function (){
+        const x = num1.value;
+        const y = num2.value;
+        const inptext = text.value;
+        function createTable (x, y, inptext) {
+            const table = document.createElement('table');
+            document.body.append(table);
+            for (let i = 0; i < x; i++) {
+                const x = document.createElement('x');
+                table.appendChild(x);
+                for (let j = 0; j < y; j++) {
+                    const y = document.createElement('y');
+                    inptext = `${text}`;
+                    y.style.border = '2px solid black';
+                    y.style.width = '100px'
+                    y.style.height = '100px'
+                    x.appendChild(y);
+
+                }
+
+            }
+
+            }
+            createTable(x, y, inptext);
+        })
+
+
 </script>
 
 
