@@ -90,29 +90,31 @@
     button.innerText = 'OK';
     document.body.append(num1, num2, text, button);
     button.addEventListener('click', function (){
-        const x = num1.value;
-        const y = num2.value;
+        const tr = num1.value;
+        const td = num2.value;
         const inptext = text.value;
-        function createTable (x, y, inptext) {
+        function createTable (tr, td, text) {
             const table = document.createElement('table');
             document.body.append(table);
-            for (let i = 0; i < x; i++) {
-                const x = document.createElement('x');
-                table.appendChild(x);
-                for (let j = 0; j < y; j++) {
-                    const y = document.createElement('y');
-                    inptext = `${text}`;
-                    y.style.border = '2px solid black';
-                    y.style.width = '100px'
-                    y.style.height = '100px'
-                    x.appendChild(y);
+            for (let i = 0; i < tr; i++) {
+                const tr = document.createElement('tr');
+                table.appendChild(tr);
+                for (let j = 0; j < td; j++) {
+                    const td = document.createElement('td');
+                    td.innerText = `${text}`;
+                    td.style.border = '2px solid black';
+                    td.style.width = '100px'
+                    td.style.height = '100px'
+                    td.style.fontSize = '40px'
+                    td.style.color = 'black'
+                    tr.appendChild(td);
 
                 }
 
             }
 
             }
-            createTable(x, y, inptext);
+            createTable(tr, td, inptext);
         })
 
 
